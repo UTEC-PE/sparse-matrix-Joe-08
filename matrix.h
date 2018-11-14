@@ -170,7 +170,7 @@ class Matrix {
             return 0;
         }
 
-        void printRow(){
+        /*void printRow(){
             Node<T>* aux=hRows;
             while (aux->down != NULL){
                 Node<T> *aux2 = aux;
@@ -181,6 +181,15 @@ class Matrix {
                 }
                 cout<<endl;
                 aux = aux->down;
+            }
+        }*/
+
+        void print(){
+            for (int i = 0; i < rows; ++i){
+                for (int j = 0; j < columns; ++j){
+                    cout<<(*this)(j,i)<<" ";
+                }
+                cout<<endl;
             }
         }
         
@@ -225,7 +234,7 @@ class Matrix {
                 throw out_of_range("Matrices de diferentes dimensiones");
             }
 
-            Matrix<T> resultado = *this;
+            Matrix<T> resultado = (*this)*1;
             Node<T> *tempR = other.hRows;
 
             while (tempR->down != NULL){
@@ -245,7 +254,7 @@ class Matrix {
                 throw out_of_range("Matrices de diferentes dimensiones");
             }
 
-            Matrix<T> resultado = *this;
+            Matrix<T> resultado = (*this)*1;
             Node<T> *tempR = other.hRows;
 
             while (tempR->down != NULL){
